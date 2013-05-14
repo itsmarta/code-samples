@@ -9,7 +9,7 @@
     <script>
 function initialize() {
   var mapOptions = {
-    zoom: 4,
+    zoom: 10,
     center: new google.maps.LatLng(-33, 151),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
@@ -17,7 +17,7 @@ function initialize() {
                                 mapOptions);
   // Try HTML5 geolocation
   if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
+  	navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
