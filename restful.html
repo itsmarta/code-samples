@@ -45,7 +45,7 @@ function getBuses() {
     url: 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus',
     type: 'GET',
     data: data, // or $('#myform').serializeArray()
-    success: function() { alert(data); }
+    success: function() { console.log(data); }
 });
 }
 
