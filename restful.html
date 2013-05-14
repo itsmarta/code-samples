@@ -6,6 +6,7 @@
     <title>Simple bus icons</title>
     <link href="style.css" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>
 function initialize() {
   var mapOptions = {
@@ -36,6 +37,16 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+  getBuses();
+}
+
+function getBuses() {
+	$.ajax({
+    url: 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus',
+    type: 'GET',
+    data: data, // or $('#myform').serializeArray()
+    success: function() { alert(data); }
+});
 }
 
 function handleNoGeolocation(errorFlag) {
