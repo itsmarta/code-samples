@@ -11,7 +11,7 @@
 function initialize() {
   var mapOptions = {
     zoom: 12,
-    center: new google.maps.LatLng(-33, 151),
+    center: new google.maps.LatLng(33.843045,-84.396973),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -44,8 +44,15 @@ function getBuses() {
 	$.ajax({
     url: 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus',
     type: 'GET',
-    data: data, // or $('#myform').serializeArray()
-    success: function() { console.log(data); }
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+        $.each(data, function(index, element) {
+            $('body').append($('<div>', {
+                text: element.name
+            }));
+        });
+    }
 });
 }
 
