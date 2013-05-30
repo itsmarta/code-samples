@@ -5,6 +5,6 @@ Code samples for using the MARTA bus real-time RESTful web service and other dat
 
 Current functions in getVehicles.py module
 
-* [getBuses ([route#])]{https://github.com/itsmarta/marta-python/blob/master/getVehicles.py#L10}
+* [getBuses ([route#])](https://github.com/itsmarta/marta-python/blob/master/getVehicles.py#L10)
 
-* [getTrains ([station_name])]{https://github.com/itsmarta/marta-python/blob/master/getVehicles.py#L40}
+* [getTrains ([station_name])](https://github.com/itsmarta/marta-python/blob/master/getVehicles.py#L40)
