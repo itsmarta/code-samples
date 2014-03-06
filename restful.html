@@ -7,6 +7,7 @@
     <link href="style.css" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
     <script>
 function initialize() {
   var mapOptions = {
@@ -37,23 +38,28 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+  console.log("we're here")
   getBuses();
 }
 
 function getBuses() {
-	$.ajax({
-    url: 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus',
-    type: 'GET',
-    data: { get_param: 'value' }, 
-    dataType: 'json',
-    success: function (data) { 
-        $.each(data, function(index, element) {
-            $('body').append($('<div>', {
-                text: element.name
-            }));
-        });
+  var url = 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus'
+  $.ajax({
+    type: "GET",
+    timeout: 1000, //in milliseconds
+    url: url,
+    contentType: "application/json; charset=utf-8",
+    dataType: 'jsonp',
+    ProcessData: true,
+    success: function(data){
+      console.log(data)
     }
-});
+    ,
+    error: function(error, data){
+      console.log(error)
+    }
+  })
+
 }
 
 function handleNoGeolocation(errorFlag) {
